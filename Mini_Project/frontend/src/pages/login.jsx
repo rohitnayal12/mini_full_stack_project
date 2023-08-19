@@ -13,7 +13,7 @@ const handlesubmit=()=>{
     pass
   }
   console.log(payload)
-  fetch("http://localhost:8080/users/login",{
+  fetch("https://notes-app-3xdm.onrender.com/users/login",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -21,39 +21,22 @@ const handlesubmit=()=>{
     body:JSON.stringify(payload)
   })
   .then((res)=>{
+   
     return res.json()
   })
   .then((data)=>{
     console.log(data)
-    localStorage.setItem("token", (data.token))
-    const handlesubmit=()=>{
-  
-      const payload={
-        title,
-        body
-      }
-      console.log(payload)
-      fetch("http://localhost:8080/notes/create",{
-        method:"POST",
-        headers:{
-          "Authorization":`Bearer ${localStorage.getItem("token")}`,
-          "content-type":`application/json`
-  
-        },
-        body:JSON.stringify(payload)
-      })
-      
-      .then((res)=>{
-        return res.json()
-      })
-      .then((data)=>{
-        console.log(data)
-        alert("Logged In Successfully.")
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
+    if (data.token==undefined) {
+      // Handle error response
+      console.log('Login failed. Please check your credentials.')
+      alert(" Login failed.Please check your credentials.")
     }
+    else{
+      localStorage.setItem("token", (data.token))
+      alert("Login successful.")
+    }
+    
+ 
   })
   .catch((err)=>{
     console.log(err)

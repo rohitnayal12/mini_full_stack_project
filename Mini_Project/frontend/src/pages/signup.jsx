@@ -14,7 +14,7 @@ const handlesubmit=()=>{
     pass
   }
   console.log(payload)
-  fetch("http://localhost:8080/users/register",{
+  fetch("https://notes-app-3xdm.onrender.com/users/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -26,34 +26,8 @@ const handlesubmit=()=>{
   })
   .then((data)=>{
     console.log(data)
-    const handlesubmit=()=>{
-  
-      const payload={
-        title,
-        body
-      }
-      console.log(payload)
-      fetch("http://localhost:8080/notes/create",{
-        method:"POST",
-        headers:{
-          "Authorization":`Bearer ${localStorage.getItem("token")}`,
-          "content-type":`application/json`
-  
-        },
-        body:JSON.stringify(payload)
-      })
-      
-      .then((res)=>{
-        return res.json()
-      })
-      .then((data)=>{
-        console.log(data)
-        alert("Registered Successfully.")
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-    }
+    alert("New user has been registered successfully.")
+    
   })
   .catch((err)=>{
     console.log(err)

@@ -13,7 +13,7 @@ function AddNotes() {
       body
     }
     console.log(payload)
-    fetch("http://localhost:8080/notes/create",{
+    fetch("https://notes-app-3xdm.onrender.com/notes/create",{
       method:"POST",
       headers:{
         "Authorization":`Bearer ${localStorage.getItem("token")}`,

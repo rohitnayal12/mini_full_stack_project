@@ -9,7 +9,7 @@ function Notes() {
   
 
     useEffect(()=>{
-        fetch("http://localhost:8080/notes",{
+        fetch("https://notes-app-3xdm.onrender.com/notes",{
             method:"GET",
             headers:{
               "Authorization":`Bearer ${localStorage.getItem("token")}`

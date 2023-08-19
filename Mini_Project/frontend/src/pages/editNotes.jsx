@@ -5,14 +5,14 @@ function EditNotes() {
 const {id}=useParams()
 const [title,setTitle]=useState("")
 const [body,setBody]=useState("")
-const [notes,setNotes]=useState({})
+// const [notes,setNotes]=useState({})
 console.log(id)
 
 
 
 
 useEffect(()=>{
-    fetch("http://localhost:8080/notes",{
+    fetch("https://notes-app-3xdm.onrender.com/notes",{
         method:"GET",
         headers:{
           "Authorization":`Bearer ${localStorage.getItem("token")}`
@@ -46,7 +46,7 @@ const handlesubmit=async()=>{
     
 
     try {
-    let res =  await fetch(`http://localhost:8080/notes/update/${id}`,{
+    let res =  await fetch(`https://notes-app-3xdm.onrender.com/notes/update/${id}`,{
       method:"PATCH",
       headers:{
         "Authorization":`Bearer ${localStorage.getItem("token")}`,
@@ -73,7 +73,7 @@ const handlesubmit=async()=>{
     // })
   }
 
-console.log(notes)
+
   return (
     <div>
 <h1>Edit notes page</h1>
