@@ -13,7 +13,7 @@ app.use("/notes",noteRouter)
 
 
 app.get("/",async(req,res)=>{
-    console.log("Homepage")
+    //console.log("Homepage")
     res.send("HomePage")
 })
 
